@@ -1,26 +1,29 @@
 #2016-2017 PERSONAL PROJECTS: TurtleChat!
-#WRITE YOUR NAME HERE!
+#SIHAM
 
-#####################################################################################
-#                                   IMPORTS                                         #
-#####################################################################################
-#import the turtle module
-#import the Client class from the turtle_chat_client module
-#Finally, from the turtle_chat_widgets module, import two classes: Button and TextInput
-#####################################################################################
-#####################################################################################
+import turtle
+from turtle_chat_client import Client 
+from turtle_chat_widgets import Button , TextInput
 
-#####################################################################################
-#                                   TextBox                                         #
-#####################################################################################
-#Make a class called TextBox, which will be a subclass of TextInput.
-#Because TextInput is an abstract class, you must implement its abstract
-#methods.  There are two:
-#
-#draw_box
-#write_msg
-#
-#Hints:
+class TextBox(TextInput):
+      
+    def draw_box(self):
+        turtle.penup()
+        turtle.goto(pos)
+        turtle.pendown()
+        turtle.goto(100,0)
+        turtle.goto(100,100)
+        turtle.goto(0,100)
+        turtle.goto(pos)
+        turtle.mainloop()  
+
+
+
+    def write_msg(self):
+        self.setup_listeners()
+        print(self.new_msg)
+
+
 #1. in draw_box, you will draw (or stamp) the space on which the user's input
 #will appear.
 #
@@ -73,10 +76,10 @@ class View:
     _LINE_SPACING=round(_SCREEN_HEIGHT/2/(_MSG_LOG_LENGTH+1))
 
     def __init__(self,username='Me',partner_name='Partner'):
-        '''
+        
         :param username: the name of this chat user
         :param partner_name: the name of the user you are chatting with
-        '''
+    
         ###
         #Store the username and partner_name into the instance.
         ###
@@ -201,3 +204,4 @@ if __name__ == '__main__':
         turtle.ontimer(check,_WAIT_TIME) #Check recursively
     check()
     turtle.mainloop()
+    '''
